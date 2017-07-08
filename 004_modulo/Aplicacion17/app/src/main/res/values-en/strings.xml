@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aplicacion 17</string>
+    <string name="letrero1">Trying language functions</string>
+    <string name="letrero2">By the sufix we can change the behaivor of the movil device</string>
+    <string name="letrero3">It fix for dimensions, languages and much more</string>
+    <string name="letrero4">"Made by Luis Cobian "</string>
+</resources>

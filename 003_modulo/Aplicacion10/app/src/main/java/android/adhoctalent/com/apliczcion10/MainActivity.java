@@ -1,7 +1,12 @@
 package android.adhoctalent.com.apliczcion10;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -29,9 +34,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    Toolbar toolbar ;
+    Toolbar toolbar;
     public static List<Contacto> datos = new ArrayList<>();
-    RecyclerView rv ;
+    RecyclerView rv;
 
     FloatingActionButton botonFlotante;
 
@@ -44,11 +49,10 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-
         rv = (RecyclerView) findViewById(R.id.rv);
 
         Log.e("Numero datos", String.valueOf(datos.size()));
-        actualizaRecycler () ;
+        actualizaRecycler();
         botonFlotante = (FloatingActionButton) findViewById(R.id.agregarBoton);
         botonFlotante.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     @Override
@@ -68,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void actualizaRecycler() {
-        AdaptorRecycler ar =  new AdaptorRecycler(datos);
+        AdaptorRecycler ar = new AdaptorRecycler(datos);
         ar.setListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,6 +82,19 @@ public class MainActivity extends AppCompatActivity {
                 View v1 = rv.getChildAt(rv.getChildAdapterPosition(view));
                 TextView tte = (TextView) v1.findViewById(R.id.cTelefono);
                 Log.e("NUMERO AL QUE LLAMARA", tte.getText().toString());
+                /// Intención para mandar llamar al numero que se tiene
+                Intent i = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + tte.getText().toString()));
+                if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    ActivityCompat.requestPermissions(MainActivity.this,
+                            new String[]{Manifest.permission.CALL_PHONE},225);
+                    return;
+                }
+                try {
+                    startActivity(i);
+                }catch(Exception e){
+                    Snackbar.make(rv,"Imposible hacer la llamada", Snackbar.LENGTH_LONG).show();
+                }
             }
         });
         rv.setAdapter(ar);

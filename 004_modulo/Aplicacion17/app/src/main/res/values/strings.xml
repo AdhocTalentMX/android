@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Aplicacion 17</string>
+    <string name="letrero1">Probando la funcionalidad de los idiomas</string>
+    <string name="letrero2">Segun los sufijos podemos hacer que el comportamiento del dispositivo cambie</string>
+    <string name="letrero3">Funciona para las dimensiones, idiomas entre otras cosas </string>
+    <string name="letrero4">Este programa fue creado por Luis Cobian</string>
+</resources>
