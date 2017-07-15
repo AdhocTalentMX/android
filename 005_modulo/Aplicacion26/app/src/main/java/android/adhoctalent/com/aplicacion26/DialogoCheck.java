@@ -42,4 +42,6 @@ public class DialogoCheck  extends DialogFragment {
 
         return builder.create();
     }
+
+
 }
