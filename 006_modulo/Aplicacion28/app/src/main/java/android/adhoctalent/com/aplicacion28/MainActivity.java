@@ -26,12 +26,7 @@ public class MainActivity extends AppCompatActivity {
         txtPuesto = (TextView) findViewById(R.id.txtPuesto);
         btnActualiza = (Button) findViewById(R.id.btnActualiza);
 
-        /// Traemos las preferewncias de la aplicacion
-        SharedPreferences sp = getSharedPreferences
-                ("misdatos", Context.MODE_PRIVATE);
-        txtNombre.setText
-                (sp.getString("nombre","NO EXISTE"));
-        txtPuesto.setText(sp.getString("puesto", "NO EXISTE"));
+
 
         btnActualiza.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +35,18 @@ public class MainActivity extends AppCompatActivity {
                         Actualiza.class);
                 startActivity(i);
             }
-        });
+        });  // https://github.com/AdhocTalentMX
 
+    }
+
+    @Override
+    protected void onResume() {
+        // Traemos las preferewncias de la aplicacion
+        SharedPreferences sp = getSharedPreferences
+                ("misdatos", Context.MODE_PRIVATE);
+        txtNombre.setText
+                (sp.getString("nombre","NO EXISTE"));
+        txtPuesto.setText(sp.getString("puesto", "NO EXISTE"));
+        super.onResume();
     }
 }
