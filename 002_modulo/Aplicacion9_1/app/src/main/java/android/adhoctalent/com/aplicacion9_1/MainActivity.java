@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Datas
-        boleta = new ArrayList<>();
+       /* boleta = new ArrayList<>();
         boleta.add(new Materia("Matematicas", 78));
         boleta.add(new Materia("Programación", 85));
         boleta.add(new Materia("Historia", 100));
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         tableLayout =  (TableLayout) findViewById(R.id.table);
 
-        actualizaTable(boleta);
+        actualizaTable(boleta);*/
     }
 
     public void actualizaTable(List<Materia> boleta){

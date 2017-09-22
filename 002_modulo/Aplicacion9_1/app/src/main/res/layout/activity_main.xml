@@ -11,8 +11,6 @@
     android:stretchColumns="1"
     android:id="@+id/table">
 
-    <!--
-    Este codigo mostraria como armar una tabla desde el puro XML
     <TableRow android:background="#64031e">
 
         <TextView
@@ -70,7 +68,7 @@
             android:padding="3dip"
             android:text="0" />
     </TableRow>
-    -->
+
 
 </TableLayout>
 </ScrollView>
